@@ -6,6 +6,8 @@
 
 A Model Context Protocol (MCP) server for the NWO Robotics API. Enables AI agents (Claude, Cursor, etc.) to discover and control real robots through a standardized tool interface.
 
+[![NWO Robotics MCP server](https://glama.ai/mcp/servers/RedCiprianPater/mcp-server-robotics/badges/card.svg)](https://glama.ai/mcp/servers/RedCiprianPater/mcp-server-robotics)
+
 ## What is MCP?
 
 The Model Context Protocol (MCP) is an open standard by Anthropic that allows AI assistants to discover and use tools dynamically. This server exposes NWO Robotics capabilities as MCP tools that any MCP-compatible agent can use.
