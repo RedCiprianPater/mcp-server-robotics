@@ -1,0 +1,44 @@
+{
+  "name": "@nwo-capital/mcp-server-robotics",
+  "version": "1.0.0",
+  "description": "MCP Server for NWO Robotics API - Control real robots via Model Context Protocol",
+  "type": "module",
+  "main": "server.js",
+  "bin": {
+    "nwo-robotics-mcp": "./server.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js --dev",
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "robotics",
+    "ai",
+    "claude",
+    "cursor",
+    "vla",
+    "vision-language-action",
+    "iot",
+    "autonomous-agents"
+  ],
+  "author": "NWO Capital <ciprian.pater@publicae.org>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nwocapital/mcp-server-robotics.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nwocapital/mcp-server-robotics/issues"
+  },
+  "homepage": "https://nworobotics.cloud",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "axios": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

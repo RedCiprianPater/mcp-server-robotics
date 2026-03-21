@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "nwo-robotics": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@nwo-capital/mcp-server-robotics"
+      ],
+      "env": {
+        "NWO_API_KEY": "<YOUR_API_KEY>",
+        "NWO_AGENT_ID": "<YOUR_AGENT_ID>",
+        "NWO_API_BASE": "https://nwo.capital/webapp"
+      }
+    }
+  }
+}
