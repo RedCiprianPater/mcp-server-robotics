@@ -473,7 +473,7 @@ GET /health (if enabled)
 - **Issues**: https://github.com/RedCiprianPater/mcp-server-robotics/issues
 - **Discussions**: https://github.com/RedCiprianPater/mcp-server-robotics/discussions
 - **API Key Help**: https://nwo.capital/webapp/api-key.php
-- **NWO Docs**: https://nwo.capital/
+- **NWO Docs**: https://nwo.capital/nwo-robotics.html
 
 ## 📝 Version History
 
