@@ -1,1 +1,7 @@
-
+# Environment variables
+   .env
+   .env.local
+   .env.*.local
+   
+   # API Keys
+   NWO_API_KEY=*
