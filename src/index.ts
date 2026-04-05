@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node 
 
 import Anthropic from "@anthropic-ai/sdk";
 
