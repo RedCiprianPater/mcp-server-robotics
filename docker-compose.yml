@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  mcp-nwo-robotics:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    container_name: mcp-nwo-robotics-server
+    
+    environment:
+      NODE_ENV: production
+      NWO_API_KEY: ${NWO_API_KEY:-sk_your_key_here}
+      NWO_API_BASE: ${NWO_API_BASE:-https://nwo.capital/webapp}
+      NWO_EDGE_API: ${NWO_EDGE_API:-https://nwo-robotics-api-edge.ciprianpater.workers.dev/api}
+      NWO_ROS2_BRIDGE: ${NWO_ROS2_BRIDGE:-https://nwo-ros2-bridge.onrender.com}
+      MQTT_BROKER: ${MQTT_BROKER:-mqtt.nwo.capital}
+      MQTT_PORT: ${MQTT_PORT:-8883}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    
+    ports:
+      - "3000:3000"
+    
+    volumes:
+      # Mount for persistent data (optional)
+      - ./data:/app/data
+      - ./logs:/app/logs
+    
+    restart: unless-stopped
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+  # Optional: MQTT Broker for local testing
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: nwo-mqtt-broker
+    
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-logs:/mosquitto/log
+    
+    restart: unless-stopped
+    
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  mosquitto-data:
+  mosquitto-logs:
+
+networks:
+  default:
+    name: nwo-robotics-network
+    driver: bridge
