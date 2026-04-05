@@ -1,44 +1,85 @@
 {
-  "name": "@nwo-capital/mcp-server-robotics",
-  "version": "1.0.0",
-  "description": "MCP Server for NWO Robotics API - Control real robots via Model Context Protocol",
+  "name": "mcp-server-nwo-robotics",
+  "version": "2.0.0",
+  "description": "Comprehensive MCP (Model Context Protocol) server for NWO Robotics API with 77 tools covering SLAM, RL, sensors, and advanced robotics",
   "type": "module",
-  "main": "server.js",
-  "bin": {
-    "nwo-robotics-mcp": "./server.js"
-  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js --dev",
-    "test": "node test/test.js"
+    "build": "tsc",
+    "start": "node --loader ts-node/esm src/index.ts",
+    "dev": "ts-node src/index.ts",
+    "watch": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write src/**/*.ts",
+    "prepare": "npm run build"
   },
   "keywords": [
     "mcp",
     "model-context-protocol",
     "robotics",
+    "nwo",
     "ai",
-    "claude",
-    "cursor",
     "vla",
     "vision-language-action",
-    "iot",
-    "autonomous-agents"
+    "slam",
+    "reinforcement-learning",
+    "robot-control"
   ],
-  "author": "NWO Capital <ciprian.pater@publicae.org>",
+  "author": "NWO Robotics Community",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nwocapital/mcp-server-robotics.git"
+    "url": "https://github.com/RedCiprianPater/mcp-server-robotics.git"
   },
-  "bugs": {
-    "url": "https://github.com/nwocapital/mcp-server-robotics/issues"
-  },
-  "homepage": "https://nworobotics.cloud",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.5.0",
-    "axios": "^1.6.0"
+    "@anthropic-ai/sdk": "^0.24.0",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.1",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.ts",
+      "**/?(*.)+(spec|test).ts"
+    ]
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": false,
+    "printWidth": 100,
+    "tabWidth": 2
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "warn"
+    }
   }
 }
