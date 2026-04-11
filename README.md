@@ -121,7 +121,7 @@ export NWO_API_KEY="sk_live_your_key_here"
 ### API Endpoints
 ```bash
 # Standard API (full features)
-NWO_API_BASE=https://nwo.capital/webapp
+NWO_API_BASE=https://nwo.capital/webapp/api-key.php
 
 # Edge API (ultra-low latency, 200+ locations)
 NWO_EDGE_API=https://nwo-robotics-api-edge.ciprianpater.workers.dev/api
@@ -351,7 +351,7 @@ npm run dev -- --test nwo_sensor_fusion
 - **GitHub**: https://github.com/RedCiprianPater/mcp-server-robotics
 - **Whitepaper**: https://www.researchgate.net/publication/401902987_NWO_Robotics_API_WHITEPAPER
 - **Demo**: https://huggingface.co/spaces/PUBLICAE/nwo-robotics-api-demo
-- **Docs**: https://docs.anthropic.com/
+- **Docs**: https://nworobotics.cloud
 
 ## 🔗 Integration Guides
 
